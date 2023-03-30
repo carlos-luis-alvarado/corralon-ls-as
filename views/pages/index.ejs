@@ -1,0 +1,45 @@
+<%- include('../partials/header.ejs')%>
+    <link rel="stylesheet" href="/styles/lista-productos.css">
+    <link rel="stylesheet" href="/styles/productos.css">
+    <link rel="stylesheet" href="/styles/card/card.css">
+    </head>
+
+    <body>
+        <%- include('../partials/navbar.ejs') %>
+            <main>
+                <div class="lista-productos">
+                    <div class="productos">
+                        <% productos.forEach(function(producto) { %>
+                            <%- include('../partials/card.ejs',{producto})%>
+                        <% }); %>
+                    </div>
+
+                </div>
+            </main>
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N"
+                crossorigin="anonymous"></script>
+            <script>
+                const botones_eliminar = document.querySelectorAll('.boton-eliminar');
+                botones_eliminar.forEach(boton_eliminar => {
+                    boton_eliminar.addEventListener('click', async (e) => {
+                        console.log('eliminar');
+                        console.dir(boton_eliminar.children[0].textContent);
+                        const id = boton_eliminar.children[0].textContent
+                        await fetch('http://localhost:8080/corralon-los-alisos/productos/' + id, {
+                            method: 'DELETE',
+                            headers: {
+                                'Content-type': 'application/json'
+                            },
+                            // body:JSON.stringify({id})
+                        })
+                            .then(() => window.location.reload())
+                            .catch(console.log('NO borrado'))
+                    })
+                })
+
+            </script>
+    </body>
+
+    </html>

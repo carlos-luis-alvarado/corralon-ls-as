@@ -1,0 +1,10 @@
+.card{
+    line-height: 1;
+    margin: 1rem auto;
+}
+
+.card-img{
+    padding: 1rem;
+    width: auto;
+    height: 15rem;
+}

@@ -1,0 +1,19 @@
+<div class="card" style="width: 18rem;">
+  <div class="card-img">
+    <img src="<%= producto.img %>" class="card-img-top" alt="<%= producto.nombre%>">
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= producto.nombre.toUpperCase() %>
+    </h5>
+    <h2>$<%= producto.precio_venta %>
+    </h2>
+    <p class="card-text">
+      <%= producto.descripcion %>
+    </p>
+    <a href="/corralon-los-alisos/productos/editar/<%= producto.id %>" class="btn btn-primary">Editar</a>
+    <a href="#" class="btn btn-danger boton-eliminar">Eliminar <span style="display: none;">
+        <%= producto._id %>
+      </span></a>
+  </div>
+</div>
