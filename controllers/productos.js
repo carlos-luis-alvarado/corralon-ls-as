@@ -34,7 +34,7 @@ const nuevoProducto =(req,res=response)=>{
 const crearProducto = async (req,res=response)=>{
     const body = req.body
     const data = {
-        nombre:body.nombre,
+        nombre:body.nombre.toLowerCase(),
         precio_venta:body.precio_venta,
         marca:body.marca,
         descripcion:body.descripcion,
@@ -68,7 +68,7 @@ const actualizarProducto = async(req,res=response)=>{
 const buscarProductos = async(req,res=response)=>{
     // console.log(req.params);
     console.log(req.query.nombre);
-    const nombre = req.query.nombre;
+    const nombre = req.query.nombre.toLowerCase();
     let re = new RegExp(nombre,'g')
     const productos = await Producto.find({nombre:{$regex:re}});
 
