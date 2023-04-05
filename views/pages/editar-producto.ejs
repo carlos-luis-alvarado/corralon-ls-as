@@ -54,7 +54,7 @@
             data[inputVal.name] = inputVal.value
           }
         })
-        await fetch('http://localhost:8080/corralon-los-alisos/productos/editar/' + id, {
+        await fetch('/corralon-los-alisos/productos/editar/' + id, {
           method: 'PUT',
           headers: {
             'Content-type': 'application/json'

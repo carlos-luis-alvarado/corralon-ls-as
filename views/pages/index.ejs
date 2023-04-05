@@ -26,8 +26,8 @@
                     boton_eliminar.addEventListener('click', async (e) => {
                         console.log('eliminar');
                         console.dir(boton_eliminar.children[0].textContent);
-                        const id = boton_eliminar.children[0].textContent
-                        await fetch('http://localhost:8080/corralon-los-alisos/productos/' + id, {
+                        const id = boton_eliminar.children[0].textContent.trim();
+                        await fetch('/corralon-los-alisos/productos/' + id, {
                             method: 'DELETE',
                             headers: {
                                 'Content-type': 'application/json'
